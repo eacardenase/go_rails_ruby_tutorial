@@ -54,7 +54,7 @@ when "2"
   requested_service_name = gets.chomp
   credentials = PASSWORD_VAULT[requested_service_name.to_sym]
 
-  unless credentials then
+  unless credentials
     puts "Credentials for the service name provided where not found. Exiting the program."
 
     exit
