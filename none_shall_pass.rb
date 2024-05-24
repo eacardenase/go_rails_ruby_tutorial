@@ -13,29 +13,28 @@ print "Enter email: "
 
 user_email = gets.chomp
 
-if user_email == EMAIL
-  print "Enter password: "
-
-  user_password = gets.chomp
-else
+unless user_email == EMAIL
   puts "Invalid email."
 
   exit
 end
 
-unless user_password != PASSWORD
-  puts "Hello #{user_email}"
-  puts "What would you like to do?"
-  puts "1. Add new service credentials"
-  puts "2. Retrieve an existing services credential"
-  puts "3. Exit"
+print "Enter password: "
+user_password = gets.chomp
 
-  user_selection = gets.chomp
-else
+unless user_password == PASSWORD
   puts "Invalid password."
 
   exit
 end
+
+puts "Hello #{user_email}"
+puts "What would you like to do?"
+puts "1. Add new service credentials"
+puts "2. Retrieve an existing services credential"
+puts "3. Exit"
+
+user_selection = gets.chomp
 
 case user_selection
 when "1"
@@ -61,7 +60,7 @@ when "2"
     exit
   end
 
-  puts "Here are the credentials for #{requested_service_name}"
+  puts "Here are the credentials for #{requested_service_name}:"
 
   credentials.each { |key, value| puts "#{key.capitalize}: #{value}" }
 else
