@@ -1,10 +1,28 @@
-class House
-  # attr_reader :color
-  # attr_writer :color
-  attr_accessor :color
+print "Current scope: "
+puts self
 
-  def initialize(color)
+class House
+  print "Current scope: "
+  puts self
+
+  @@count = 0
+
+  def self.count
+    @@count
+  end
+
+  # attr_reader :count
+  # attr_writer :color
+  attr_accessor :color, :style
+
+  def initialize(color, style)
+    print "Current scope: "
+    puts self
+
     @color = color
+    @style = style
+
+    @@count += 1
   end
 
   # def color
@@ -17,10 +35,13 @@ class House
 end
 
 print House.name + " "
-p House.class
+print House.class
+puts ":"
 
-house = House.new("white")
-puts house.color
+puts House.count
 
-house.color = "red"
+house = House.new("white", "craftsman")
 puts house.color
+puts house.style
+
+puts House.count
