@@ -132,6 +132,8 @@ verify_user_password(user_password)
 
 greet_user(user_email)
 
-menu_options
-user_selection = get_user_menu_selection
-handle_user_selection(user_selection)
+loop do
+  menu_options
+  user_selection = get_user_menu_selection
+  handle_user_selection(user_selection)
+end
