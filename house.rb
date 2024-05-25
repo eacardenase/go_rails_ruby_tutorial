@@ -11,6 +11,10 @@ class House
     @@count
   end
 
+  def self.report_count_of_instances
+    "There are #{count} of instances of the '#{name}' class."
+  end
+
   # attr_reader :count
   # attr_writer :color
   attr_accessor :color, :style
@@ -23,6 +27,10 @@ class House
     @style = style
 
     @@count += 1
+  end
+
+  def details
+    "This is a #{color} #{style} house instance."
   end
 
   # def color
@@ -39,9 +47,10 @@ print House.class
 puts ":"
 
 puts House.count
+puts House.report_count_of_instances
 
 house = House.new("white", "craftsman")
-puts house.color
-puts house.style
+puts house.details
 
 puts House.count
+puts House.report_count_of_instances
